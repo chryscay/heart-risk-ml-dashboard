@@ -62,3 +62,11 @@ auc = roc_auc_score(y_test, y_proba)
 
 print("Accuracy:", acc)
 print("ROC AUC:", auc)
+
+# save the trained model
+os.makedirs("models", exist_ok=True) #create folder
+
+model_path = os.path.join("models", "heart_risk_logreg.joblib")
+joblib.dump(pipeline, model_path)
+
+print(f"Model saved to: {model_path}")
